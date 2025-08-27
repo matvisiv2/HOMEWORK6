@@ -15,7 +15,11 @@
 }
 
 .student {
-    width: 20%;
-    display: grid;
+    width                : 20%;
+    display              : grid;
     grid-template-columns: 1fr 1fr;
+}
+
+.image {
+    width: 200px;
 }

@@ -19,12 +19,20 @@ function task01(){
 }
 
 
+
+
 // 2. На сторінці є елемент зображення:
 //      <body>
 // 		   <img class="image" src="dog.jpg">
 //      </body>
 // Потрібно змінити зображення dog.jpg на cat.jpg.
 // Виведіть в модальному вікні вміст тегу img з новим зображенням.
+
+function task02() {
+    const img = document.querySelector(".image");
+    img.setAttribute("src", "./img/cat.jpg");
+    alert(img.outerHTML);
+}
 
 // 3. 
 //        <body>
