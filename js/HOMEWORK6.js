@@ -141,8 +141,27 @@ function task05() {
 // <input type="text" id="input1" value="Text1">
 // <input type="text" id="input2" value="Text2">
 //   </body>
-// 1)Користувач почергово вводить 2 повідомлення (використати prompt()). 1-е повідомлення записується в 1-ий <input>, 2-ге – в 2-ий.
+// 1)Користувач почергово вводить 2 повідомлення (використати prompt()).
+//      1-е повідомлення записується в 1-ий <input>, 2-ге – в 2-ий.
 // 2)Поміняти значення 1-го і 2-го інпутів місцями.
+
+function task06_1() {
+    const input1 = document.getElementById("input1");
+    input1.value = prompt("Enter some text");
+
+    const input2 = document.getElementById("input2");
+    input2.value = prompt("Enter some text");
+}
+
+function task06_2() {
+    const input1 = document.getElementById("input1");
+    const input2 = document.getElementById("input2");
+
+    const tmp = input1.value
+    input1.value = input2.value;
+    input2.value = tmp;
+}
+
 
 // 7. Напишіть скріпт, який за допомогою засобів DOM створить для порожньої HTML-сторінки таку структуру з тегів і їх атрибутів.
 
