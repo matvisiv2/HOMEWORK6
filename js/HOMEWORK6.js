@@ -34,20 +34,34 @@ function task02() {
     alert(img.outerHTML);
 }
 
+
+
+
 // 3. 
 //        <body>
-// 	<h2>Article header</h2>      
-//       <div id="text">
-//         <p>First paragraph</p>
-//         <p>Second paragraph</p>
-//         <p>Third paragraph</p>
-//       </div>
-// 	<p>Another text</p>
+	// <h2>Article header</h2>      
+    //   <div id="text">
+    //     <p>First paragraph</p>
+    //     <p>Second paragraph</p>
+    //     <p>Third paragraph</p>
+    //   </div>
+	// <p>Another text</p>
 //     </body>
-// На вказаній HTML-сторінці необхідно отримати всі елементи всередині тега div по селектору (використати метод document.querySelectorAll). І вивести їх вміст із вказанням номеру абзацу в такому форматі:
+// На вказаній HTML-сторінці необхідно отримати всі елементи всередині тега div по селектору
+//  (використати метод document.querySelectorAll). І вивести їх вміст із вказанням номеру абзацу в такому форматі:
 // Selector text 0: First paragraph
 // Selector text 1: Second paragraph
 // Selector text 2: Third paragraph
+
+function task03(){
+    const elememnts = document.querySelectorAll("#text p");
+    elememnts.forEach((el, i) => {
+        console.log(`Selector text ${i}: ${el.innerText}`);
+    });
+}
+
+
+
 
 // 4. На HTML-сторінці є ненумерований список з id="list", який складається із 5 елементів. У модальному вікні необхідно послідовно вивести вміст:
 // 	1) першого елемента списку
