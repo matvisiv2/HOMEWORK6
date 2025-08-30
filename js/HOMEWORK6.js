@@ -1,10 +1,10 @@
 // 1. На HTML-сторінці є елемент div:
-//     <body>	
+//     <body>
 // 	<div id="test">First</div>
-//   </body>	
-// Потрібно змінити вміст елемента із First на Last. Доступіться до елемента div хоча б 2 способами.	
+//   </body>
+// Потрібно змінити вміст елемента із First на Last. Доступіться до елемента div хоча б 2 способами.
 
-function task01(){
+function task01() {
     // перший спосіб
     // const el = document.getElementById("test");
     // el.innerHTML = "Last";
@@ -14,12 +14,9 @@ function task01(){
     // el.textContent = "Last";
 
     // третій спосіб
-    const el = document.getElementsByTagName("div")[0];
-    el.innerHTML = "Last";
+    const el = document.getElementsByTagName('div')[0];
+    el.innerHTML = 'Last';
 }
-
-
-
 
 // 2. На сторінці є елемент зображення:
 //      <body>
@@ -29,23 +26,20 @@ function task01(){
 // Виведіть в модальному вікні вміст тегу img з новим зображенням.
 
 function task02() {
-    const img = document.querySelector(".image");
-    img.setAttribute("src", "./img/cat.jpg");
+    const img = document.querySelector('.image');
+    img.setAttribute('src', './img/cat.jpg');
     alert(img.outerHTML);
 }
 
-
-
-
-// 3. 
+// 3.
 //        <body>
-	// <h2>Article header</h2>      
-    //   <div id="text">
-    //     <p>First paragraph</p>
-    //     <p>Second paragraph</p>
-    //     <p>Third paragraph</p>
-    //   </div>
-	// <p>Another text</p>
+// <h2>Article header</h2>
+//   <div id="text">
+//     <p>First paragraph</p>
+//     <p>Second paragraph</p>
+//     <p>Third paragraph</p>
+//   </div>
+// <p>Another text</p>
 //     </body>
 // На вказаній HTML-сторінці необхідно отримати всі елементи всередині тега div по селектору
 //  (використати метод document.querySelectorAll). І вивести їх вміст із вказанням номеру абзацу в такому форматі:
@@ -53,15 +47,12 @@ function task02() {
 // Selector text 1: Second paragraph
 // Selector text 2: Third paragraph
 
-function task03(){
-    const elememnts = document.querySelectorAll("#text p");
+function task03() {
+    const elememnts = document.querySelectorAll('#text p');
     elememnts.forEach((el, i) => {
         console.log(`Selector text ${i}: ${el.innerText}`);
     });
 }
-
-
-
 
 // 4. На HTML-сторінці є ненумерований список з id="list",
 // який складається із 5 елементів. У модальному вікні необхідно послідовно вивести вміст:
@@ -70,7 +61,7 @@ function task03(){
 // 	3) другого елемента списку
 // 	4) четвертого елемента списку
 // 	5) третього елемента списку
-// Зробіть завдання 2 різними способами.	
+// Зробіть завдання 2 різними способами.
 // Приклад:
 // 1
 // 2
@@ -79,9 +70,11 @@ function task03(){
 // 5
 // Результат виводу: 1, 5, 2, 4, 3
 
-function task04(){
-    const arr = [...document.querySelectorAll("#list li")].map(e => e.innerHTML);
-    let res = "";
+function task04() {
+    const arr = [...document.querySelectorAll('#list li')].map(
+        (e) => e.innerHTML
+    );
+    let res = '';
 
     // First way
     // for(let i=0; i<(arr.length/2); i++){
@@ -93,41 +86,54 @@ function task04(){
     // }
 
     // Second way
-    while(arr.length>0){
-        res += arr.shift()
-        
-        if(arr.length>0) {
-            res += " " + arr.pop();
-        }else{
+    while (arr.length > 0) {
+        res += arr.shift();
+
+        if (arr.length > 0) {
+            res += ' ' + arr.pop();
+        } else {
             break;
         }
 
-        res += " ";
+        res += ' ';
     }
 
     alert(res);
     console.log(res);
 }
 
-
 // 5. Для сторінки
-// 		  <body>
-// 		       <h1>I'am a big header!!!</h1>
-//         <div id="myDiv">
-//             <p>First paragraph</p>
-//             <p>Second paragraph</p>
-//             <p>Third paragraph</p>
-//             <p>Fourth paragraph</p>
-//         </div>
-//         <ul id="myList">
-//             <li>Make</li>
-//             <li>me</li>
-//             <li>horizontal!</li>
-//         </ul>
-//         <span>Make me invisible, please!</span>
+//   <body>
+//        <h1>I'am a big header!!!</h1>
+// <div id="myDiv">
+//     <p>First paragraph</p>
+//     <p>Second paragraph</p>
+//     <p>Third paragraph</p>
+//     <p>Fourth paragraph</p>
+// </div>
+// <ul id="myList">
+//     <li>Make</li>
+//     <li>me</li>
+//     <li>horizontal!</li>
+// </ul>
+// <span>Make me invisible, please!</span>
 // 	    </body>
 // Напишіть скріпт, який за допомогою засобів DOM простилізує сторінку так як показано нижче:
 
+function task05() {
+    const h1 = document.querySelector("h1");
+    h1.style = "background: rgb(118 234 126);";
+
+    const arr_p = [...document.querySelectorAll("#myDiv p")];
+    arr_p.shift().style = "font-weight: bold;";
+    arr_p.shift().style = "color: red;";
+    arr_p.shift().style = "text-decoration: underline;";
+    arr_p.shift().style = "font-style: italic;";
+
+    [...document.querySelectorAll("#myList li")].forEach(el => el.style = "display: inline-block;");
+
+    document.getElementsByTagName("span")[0].style = "display: none;";
+}
 
 
 // 6. Задано HTML-сторінку:
@@ -138,16 +144,12 @@ function task04(){
 // 1)Користувач почергово вводить 2 повідомлення (використати prompt()). 1-е повідомлення записується в 1-ий <input>, 2-ге – в 2-ий.
 // 2)Поміняти значення 1-го і 2-го інпутів місцями.
 
-
 // 7. Напишіть скріпт, який за допомогою засобів DOM створить для порожньої HTML-сторінки таку структуру з тегів і їх атрибутів.
-	 
-
-
 
 // 		<body>
-// 		  <main class="mainClass check item"> 	
+// 		  <main class="mainClass check item">
 // 		        <div id="myDiv">
-//            <p>First paragraph</p>           
+//            <p>First paragraph</p>
 //          </div>
-//        </main> 
+//        </main>
 // 	    </body>
