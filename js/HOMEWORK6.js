@@ -63,7 +63,8 @@ function task03(){
 
 
 
-// 4. На HTML-сторінці є ненумерований список з id="list", який складається із 5 елементів. У модальному вікні необхідно послідовно вивести вміст:
+// 4. На HTML-сторінці є ненумерований список з id="list",
+// який складається із 5 елементів. У модальному вікні необхідно послідовно вивести вміст:
 // 	1) першого елемента списку
 // 	2) останнього елемента списку
 // 	3) другого елемента списку
@@ -77,6 +78,37 @@ function task03(){
 // 4
 // 5
 // Результат виводу: 1, 5, 2, 4, 3
+
+function task04(){
+    const arr = [...document.querySelectorAll("#list li")].map(e => e.innerHTML);
+    let res = "";
+
+    // First way
+    // for(let i=0; i<(arr.length/2); i++){
+    //     if(arr.length % 2 !== 0 && i == Math.floor(arr.length/2)){
+    //         res += arr[i];
+    //     } else {
+    //         res += arr[i] + " " + arr[arr.length-i-1] + " ";
+    //     }
+    // }
+
+    // Second way
+    while(arr.length>0){
+        res += arr.shift()
+        
+        if(arr.length>0) {
+            res += " " + arr.pop();
+        }else{
+            break;
+        }
+
+        res += " ";
+    }
+
+    alert(res);
+    console.log(res);
+}
+
 
 // 5. Для сторінки
 // 		  <body>
